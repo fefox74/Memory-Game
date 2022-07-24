@@ -4,13 +4,13 @@ var classes = ["a", "b", "c", "d", "e", "f"]
 var numbers = ["0", "1", "2", "0", "1", "2"]
 
 //set a random img
-for (var i = 0; i < classes.length; i++) {
+for (let i = 0; i < classes.length; i++) {
 
-    var imgSelected = document.querySelector("." + classes[i]);
+    let imgSelected = document.querySelector("." + classes[i]);
 
-    var randomNum = Math.floor(Math.random() * numbers.length);
+    let randomNum = Math.floor(Math.random() * numbers.length);
 
-    var imgNum = numbers[randomNum];
+    let imgNum = numbers[randomNum];
 
     imgSelected.setAttribute("src", img[imgNum]);
 
@@ -24,7 +24,7 @@ var div = document.querySelectorAll(".div");
 
 var deletedDivs = 0;
 
-for (var e = 0; e < div.length; e++) {
+for (let e = 0; e < div.length; e++) {
     //add the event listener to all the divs
     (div[e]).addEventListener("click", function () {
 
@@ -37,18 +37,20 @@ for (var e = 0; e < div.length; e++) {
 
         console.log(deletedDivs);
 
+        let src1;
         //if deleted divs are odd add id to div pressed to get 
         if (deletedDivs % 2 === 1 && deletedDivs !== 0) {
             this.setAttribute("id", "pressed");
             let firstPressedName = document.getElementById("pressed").getAttribute("name");
-            var src1 = document.querySelector("img[name='" + firstPressedName + "']").getAttribute("src");
+            src1 = document.querySelector("img[name='" + firstPressedName + "']").getAttribute("src");
             console.log(src1);
         }
 
+        let src2;
         //if deleted divs are even get the name of this and use it to get the source of the image
         if (deletedDivs % 2 === 0 ) {
-            var value = this.getAttribute("name");
-            var src2 = document.querySelector("img[name='" + value + "']").getAttribute("src");
+            let value = this.getAttribute("name");
+            src2 = document.querySelector("img[name='" + value + "']").getAttribute("src");
             console.log(src2);
         }
 
@@ -73,13 +75,3 @@ for (var e = 0; e < div.length; e++) {
 
 }
 
-
-
-
-// lastRandomNumber.push(randomNum);
-
-// while(hasDuplicates(lastRandomNumber) && lastRandomNumber.length <= 3) {
-//     randomNum = Math.floor(Math.random() * 3);
-//     lastRandomNumber.pop();
-// }
-// if(lastRandomNumber.length > 3)
